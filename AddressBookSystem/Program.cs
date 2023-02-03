@@ -18,8 +18,9 @@ namespace AddressBookSystem
             while (value)
             {
                 Console.WriteLine("Please select the Options :\n" +
-                    "1)Enter Details & add Contact in List\n" +
-                    "2)Add new Contact\n");
+                    "1.add Contact in List\n" +
+                    "2.add new Contact  Contact\n"+
+                    "3.Edit Contact");
 
                 int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -38,13 +39,54 @@ namespace AddressBookSystem
                         address1.Display();
                         address1.addPerson();
                         break;
-                    default:
-                        Console.WriteLine("Please choice correct option");
+                    case 3:
+
+                        AddressBook address2 = new AddressBook();
+                        bool value1 = true;
+
+                        while (value1)
+                        {
+                            Console.WriteLine("Follow Steps to add details:\n" +
+                               "1.addContact\n" + " 2.Edit Contact\n" +
+                               "3.Display Contact\n");
+
+                            int option = Convert.ToInt32(Console.ReadLine());
+                            switch (option)
+                            {
+                                case 1:
+                                    address2.addPerson();
+                                    break;
+                                case 2:
+                                    address2.EditContact();
+                                    break;
+
+                                case 3:
+                                    address2.Display();
+                                    break;
+
+                                default:
+
+                                    value = !value;
+                                    break;
+                            }
+
+                        }
+                        break;
+
+                        default:
+                        Console.WriteLine("Please select proper option");
                         break;
                 }
                 value = false;
-                break;
+                Console.WriteLine("Try Again ");
+                 break;
+         
             }
         } 
     }
 }
+
+
+                       
+
+                            
