@@ -12,15 +12,16 @@ namespace AddressBookSystem
     {
         static void Main(string[] args)
         {
-                Console.WriteLine("!!!Welcome To AddressBook Program!!!!");
+            Console.WriteLine("!!!Welcome To AddressBook Program!!!!");
             bool value = true;
 
             while (value)
             {
-                Console.WriteLine("Please select the Options :\n" +
+                Console.WriteLine("Please Enter Your choice :\n" +
                     "1.add Contact in List\n" +
-                    "2.add new Contact  Contact\n"+
-                    "3.Edit Contact");
+                    "2.add new Contact  Contact\n" +
+                    "3.Edit Contact\n"+
+                    "4.Delete Contact");
 
                 int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -35,7 +36,7 @@ namespace AddressBookSystem
                     case 2:
                         AddressBook address1 = new AddressBook();
                         address1.createContact();
-                        Console.WriteLine("Entered Details of Person given as :");
+                        Console.WriteLine("Information Of Contacts :");
                         address1.Display();
                         address1.addPerson();
                         break;
@@ -73,16 +74,52 @@ namespace AddressBookSystem
                         }
                         break;
 
-                        default:
-                        Console.WriteLine("Please select proper option");
+                    case 4:
+
+                        AddressBook address3 = new AddressBook();
+                        bool value2 = true;
+
+                        while (value2)
+                        {
+                            Console.WriteLine("Steps to add details:\n" +
+                               "1. addContact\n" + "2. Edit Contact\n" +
+                               "3.  Delete Contact\n" + "4. Display Contact\n");
+
+                            int choice2 = Convert.ToInt32(Console.ReadLine());
+                            switch (choice2)
+                            {
+                                case 1:
+                                    address3.addPerson();
+                                    break;
+
+                                case 2:
+                                    address3.EditContact();
+                                    break;
+
+                                case 3:
+                                    address3.DeleteContact();
+                                    break;
+
+                                case 4:
+                                    address3.Display();
+                                    break;
+                                default:
+
+                                    value = !value;
+                                    break;
+                            }
+                        }
+                        break;
+
+                    default:
+                        Console.WriteLine("wrong input given...please enter correct one");
                         break;
                 }
                 value = false;
                 Console.WriteLine("Try Again ");
-                 break;
-         
+                break;
             }
-        } 
+        }
     }
 }
 
