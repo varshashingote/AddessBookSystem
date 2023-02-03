@@ -13,23 +13,38 @@ namespace AddressBookSystem
         static void Main(string[] args)
         {
                 Console.WriteLine("!!!Welcome To AddressBook Program!!!!");
-                CreateContacts contacts = new CreateContacts()
+            bool value = true;
+
+            while (value)
+            {
+                Console.WriteLine("Please select the Options :\n" +
+                    "1)Enter Details & add Contact in List\n" +
+                    "2)Add new Contact\n");
+
+                int choice = Convert.ToInt32(Console.ReadLine());
+
+                switch (choice)
                 {
-                    First_Name = "Varsha",
-                    Last_Name = "Gunjal",
-                    Address = "Sangamner",
-                    city = "Ahmednagar",
-                    state = "Maharastra",
-                    zip = 422605,
-                    PhoneNo = 8788583058,
-                    Email = "varshagunjal01@gmail.com"
-                };
-                Console.WriteLine(contacts.First_Name + "\n" + contacts.Last_Name + "\n" + contacts.Address + "\n" + contacts.city + "\n"
-                + contacts.state + "\n" + contacts.zip + "\n" + contacts.PhoneNo + "\n" + contacts.Email);
-                Console.ReadLine();
+                    case 1:
+                        AddressBook address = new AddressBook();
+                        Console.WriteLine(" ");
+                        address.createContact();
+                        break;
 
-
-
-        }
+                    case 2:
+                        AddressBook address1 = new AddressBook();
+                        address1.createContact();
+                        Console.WriteLine("Entered Details of Person given as :");
+                        address1.Display();
+                        address1.addPerson();
+                        break;
+                    default:
+                        Console.WriteLine("Please choice correct option");
+                        break;
+                }
+                value = false;
+                break;
+            }
+        } 
     }
 }
