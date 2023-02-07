@@ -9,6 +9,19 @@ namespace AddressBookSystem
     internal class AddressBook
     {
         public List<CreateContacts> addressBookSysytem = new List<CreateContacts>();
+        Dictionary<string, List<CreateContacts>> book = new Dictionary< string,List<CreateContacts>>();
+        public void NewUser()
+        {
+            Console.WriteLine("Enter the book Name:");
+            String Bookname = Console.ReadLine();
+            Console.WriteLine("Enter the Number of constants to add");
+            int no = Convert.ToInt32(Console.ReadLine());
+            while(no>0)
+            {
+                no--;
+                addPerson();
+            }
+        }
         public void createContact()
         {
             CreateContacts contacts = new CreateContacts();

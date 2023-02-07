@@ -156,7 +156,12 @@ namespace AddressBookSystem
                             }
                         }
                         break;
+                    case 6:
+                        AddressBook address5 = new AddressBook();
+                        address5.NewUser();
 
+                        break;
+                        
                     default:
                         Console.WriteLine("Please Enter Right option");
                         break;
