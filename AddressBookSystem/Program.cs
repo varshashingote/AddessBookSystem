@@ -21,7 +21,8 @@ namespace AddressBookSystem
                     "1.add Contact in List\n" +
                     "2.add new Contact  Contact\n" +
                     "3.Edit Contact\n"+
-                    "4.Delete Contact");
+                    "4.Delete Contact\n"+
+                    "5. Add Multiple contact ");
 
                 int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -103,6 +104,51 @@ namespace AddressBookSystem
                                 case 4:
                                     address3.Display();
                                     break;
+                                case 5:
+                                    address3.AddMultipleContact();
+                                    break;
+                                default:
+
+                                    value = !value;
+                                    break;
+                            }
+                        }
+                        break;
+                    case 5:
+                        AddressBook address4= new AddressBook();
+                        address4.AddMultipleContact(); 
+                        bool check3 = true;
+
+                        while (check3)
+                        {
+                            Console.WriteLine("Follow Steps to add details:\n" +
+                               "1) To addContact\n" + "2) To Edit Contact\n" +
+                               "3) To Remove Contact\n" + "4) Adding Multiple Contacts\n" +
+                               "5) To Display Contact\n");
+
+                            int select = Convert.ToInt32(Console.ReadLine());
+                            switch (select)
+                            {
+                                case 1:
+                                    address4.addPerson();
+                                    break;
+
+                                case 2:
+                                    address4.EditContact();
+                                    break;
+
+                                case 3:
+                                    address4.DeleteContact();
+                                    break;
+
+                                case 4:
+                                    address4.AddMultipleContact();
+                                    break;
+
+                                case 5:
+                                    address4.Display();
+                                    break;
+
                                 default:
 
                                     value = !value;
@@ -112,7 +158,7 @@ namespace AddressBookSystem
                         break;
 
                     default:
-                        Console.WriteLine("wrong input given...please enter correct one");
+                        Console.WriteLine("Please Enter Right option");
                         break;
                 }
                 value = false;
