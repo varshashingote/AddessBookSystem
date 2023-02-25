@@ -22,7 +22,10 @@ namespace AddressBookSystem
                     "2.add new Contact  Contact\n" +
                     "3.Edit Contact\n"+
                     "4.Delete Contact\n"+
-                    "5. Add Multiple contact ");
+                    "5. Add Multiple contact " +
+                    "6.Add Unique multile Contacts" +
+                    "7.No Duplicate Entry"
+                    );
 
                 int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -160,6 +163,10 @@ namespace AddressBookSystem
                         AddressBook address5 = new AddressBook();
                         address5.NewUser();
 
+                        break;
+                    case 7:
+                        AddressBook address6 = new AddressBook();
+                        address6.CheckDuplicate();
                         break;
                         
                     default:

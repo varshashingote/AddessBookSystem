@@ -184,6 +184,31 @@ namespace AddressBookSystem
         }
 
 
+        //Any will check for duplicate same firstnamename in database
+        public  void CheckDuplicate()
+        {
+
+            Console.WriteLine("Enter first name to which you want to  check duplicate entry ");
+            string name = Console.ReadLine();
+            bool check = addressBookSysytem.Any(s => s.First_Name.ToLower() == name.ToLower());
+            if (check)
+            {
+                Console.WriteLine("contact Exists");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("In address book ==> {0} is not present \n So we add this person in contact\n just press enter and fill all details..");
+                Console.ReadLine();
+               addPerson();
+            }
+        }
+            //Any will check for duplicate same firstnamename in database
+           
+        
+
+
+
 
         public void Display()
         {
@@ -199,6 +224,8 @@ namespace AddressBookSystem
                 Console.WriteLine(contact.Email);
             }
         }
+
+      
     }
 }
 
