@@ -345,13 +345,29 @@ namespace AddressBookSystem
 
             }
         }
-            
+
+        public  void SortPersonsName()
+        {
+            Console.Clear();
+            var values = addressBookSysytem.OrderBy(x => x.First_Name.ToLower()).ToList();
+            Console.WriteLine("Sort person name in alphabetically");
+            Console.WriteLine("-------------------------------------");
+            foreach (var result in values)
+            {
+                Console.WriteLine("FirstName:" + result.First_Name + "   " +
+                               "LastName: " + result.Last_Name + "   " +
+                                "Zipcode: " + result.zip + "   " +
+                                "Address: " + result.Address + "   " +
+                                "StateName: " + result.state + "   " +
+                                "PhoneNumber: " + result.PhoneNo);
+            }
+            Console.ReadLine();
+        }
 
 
 
 
-
-            public void Display()
+        public void Display()
         {
             foreach (CreateContacts contact in addressBookSysytem)
             {

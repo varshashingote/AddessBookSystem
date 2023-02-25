@@ -30,7 +30,8 @@ namespace AddressBookSystem
                                 "7.No Duplicate Entry\n" +
                                 "8. SearchPersonUsingStateorCity\n" +
                                 "9 .ViewPersonByCityOrState\n" +
-                                "10.CountCityOrState \n"
+                                "10.CountCityOrState \n" +
+                                "11.SortPersonName"
 
    
                               );
@@ -84,6 +85,10 @@ namespace AddressBookSystem
                     case 10:
                         AddressBook address9 = new AddressBook();
                         address9.CountCityOrState();
+                        break;
+                    case 11:
+                        AddressBook address10 = new AddressBook();
+                        address10.SortPersonsName();
                         break;
                     default:
                         Console.Clear();
