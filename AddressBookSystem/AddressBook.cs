@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AddressBookSystem
 {
-    internal class AddressBook
+     class AddressBook
     {
         public List<CreateContacts> addressBookSysytem = new List<CreateContacts>();
         Dictionary<string, List<CreateContacts>> book = new Dictionary< string,List<CreateContacts>>();
@@ -203,14 +204,116 @@ namespace AddressBookSystem
                addPerson();
             }
         }
-            //Any will check for duplicate same firstnamename in database
-           
-        
+        public  void SearchPersonByCityOrState()
+        {
+            Console.Clear();
+            Console.WriteLine("First select options:--");
+            Console.WriteLine("1.Search Person In City\n2.Search Person In State\n");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    Console.WriteLine("Enter that City name where want to search the person name ");
+                    string cityName = Console.ReadLine();
+                    Console.WriteLine("Enter person name that you want to search in City ");
+                    string cityPersonName = Console.ReadLine();
+                    foreach (var pair in book.Keys)
+                    {
+                        Console.WriteLine("Address Book Name: " + pair);
+                        foreach (var data in addressBookSysytem.FindAll(e => e.city.ToLower() == cityName.ToLower() && e.First_Name.ToLower() == cityPersonName.ToLower()).ToList())
+                        {
+                            Console.WriteLine("The Contact Details of " + data.city + " are:\n--------------------------" + "\nFirstName: " + data.First_Name + " " + "\nLastName: " + data.Last_Name + " " + "\nZipcode: " + data.zip + " " + "\nPhoneNumber: " + data.PhoneNo);
+                            Console.WriteLine("\nPress any key to continue....");
+                            return;
+                        }
+                    }
+                    Console.WriteLine("Person With Name ==> {0} is not found in the AddressBook in City ==> {1}", cityPersonName, cityName);
+                    Console.WriteLine("\nPress any key to continue.....");
+                    Console.ReadLine();
+                    break;
+                case 2:
+                    Console.WriteLine("Enter that State name where want to search the person name ");
+                    string stateName = Console.ReadLine();
+                    Console.WriteLine("Enter person name that you want to search in State ");
+                    string statePersonName = Console.ReadLine();
+                    foreach (var pair in book.Keys)
+                    {
+                        Console.WriteLine("Address Book Name " + pair);
+                        foreach (var data in addressBookSysytem.FindAll(e => e.state.ToLower() == stateName.ToLower() && e.First_Name.ToLower() == statePersonName.ToLower()).ToList())
+                        {
+                            Console.WriteLine("The Contact Details of " + data.state + " are:\n-------------------------" + "\nFirstName: " + data.First_Name + " " + "\nLastName: " + data.Last_Name + " " + "\nZipcode: " + data.zip + " " + "\nPhoneNumber: " + data.PhoneNo);
+                            Console.WriteLine("\nPress any key to continue....");
+                            return;
+                        }
+                    }
+                    Console.WriteLine("Person With Name ==> {0} is not found in the AddressBook in State ==> {1}", statePersonName, stateName);
+                    Console.WriteLine("\nPress any key to continue.....");
+                    Console.ReadLine();
+                    break;
+                default:
+                    Console.WriteLine("select only valid options");
+                    break;
+            }
+            Console.ReadLine();
+        }
+
+        public  void ViewPersonByCityOrState()
+        {
+            Console.Clear();
+            Console.WriteLine("First select options:--");
+            Console.WriteLine("1.View Person In City\n2.View Person In State\n");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    Console.WriteLine("Enter that City name where want to view the person name ");
+                    string cityName = Console.ReadLine();
+                    foreach (var pair in book.Keys)
+                    {
+                        Console.WriteLine("Address Book Name: " + pair);
+                        Console.WriteLine("The Contact Details of {0} are:\n--------------------------", cityName);
+                        foreach (CreateContacts data in addressBookSysytem.FindAll(s => s.city.ToLower() == cityName.ToLower()).ToList())
+                        {
+                            Console.WriteLine("\nFirstName: " + data.First_Name + " " +
+                                "\nLastName: " + data.Last_Name + " " +
+                                "\nZipcode: " + data.zip + " " +
+                                "\nAddress: " + data.Address + " " +
+                                "\nStateName: " + data.state + " " +
+                                "\nPhoneNumber: " + data.PhoneNo);
+                            Console.Write("-------------------------------------------");
+                        }
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("Enter that State name where want to view the person name ");
+                    string stateName = Console.ReadLine();
+                    foreach (var pair in book.Keys)
+                    {
+                        Console.WriteLine("Address Book Name: " + pair);
+                        Console.WriteLine("The Contact Details of {0} are:\n--------------------------", stateName);
+                        foreach (CreateContacts data in addressBookSysytem.FindAll(s => s.state.ToLower() == stateName.ToLower()).ToList())
+                        {
+                            Console.WriteLine("\nFirstName: " + data.First_Name + " " +
+                                "\nLastName: " + data.Last_Name + " " +
+                                "\nZipcode: " + data.zip + " " +
+                                "\nAddress: " + data.Address + " " +
+                                "\nStateName: " + data.state + " " +
+                                "\nPhoneNumber: " + data.PhoneNo);
+                            Console.Write("-------------------------------------------");
+                        }
+                    }
+                    break;
+                default:
+                    Console.WriteLine("select only valid options");
+                    break;
+            }
+            Console.ReadLine();
+        }
+    
 
 
 
-
-        public void Display()
+    public void Display()
         {
             foreach (CreateContacts contact in addressBookSysytem)
             {
