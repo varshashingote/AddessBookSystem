@@ -29,8 +29,11 @@ namespace AddressBookSystem
                                 "6.Add Unique multile Contacts\n" +
                                 "7.No Duplicate Entry\n" +
                                 "8. SearchPersonUsingStateorCity\n" +
-                                "9 .ViewPersonByCityOrState"
-                                );
+                                "9 .ViewPersonByCityOrState\n" +
+                                "10.CountCityOrState \n"
+
+   
+                              );
 
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -77,6 +80,10 @@ namespace AddressBookSystem
                     case 9:
                         AddressBook address8 = new AddressBook();
                         address8.ViewPersonByCityOrState();
+                        break;
+                    case 10:
+                        AddressBook address9 = new AddressBook();
+                        address9.CountCityOrState();
                         break;
                     default:
                         Console.Clear();

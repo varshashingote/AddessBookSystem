@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -296,7 +297,7 @@ namespace AddressBookSystem
                             Console.WriteLine("\nFirstName: " + data.First_Name + " " +
                                 "\nLastName: " + data.Last_Name + " " +
                                 "\nZipcode: " + data.zip + " " +
-                                "\nAddress: " + data.Address + " " +
+                                "\nAddress: " + data.Address+ " " +
                                 "\nStateName: " + data.state + " " +
                                 "\nPhoneNumber: " + data.PhoneNo);
                             Console.Write("-------------------------------------------");
@@ -309,11 +310,48 @@ namespace AddressBookSystem
             }
             Console.ReadLine();
         }
-    
+
+
+        public void CountCityOrState()
+        {
+            Console.Clear();
+            Console.WriteLine("Enter the CityOrState name that want to count ");
+            string cityOrState = Console.ReadLine();
+            foreach (var data in addressBookSysytem)
+            {
+                if (addressBookSysytem.Contains(data))
+                {
+                    if (data.city.ToLower() == cityOrState.ToLower())
+                    {
+                        var values = addressBookSysytem.Count(x => x.city.ToLower() == cityOrState.ToLower());
+                        Console.WriteLine("In {0} total number of person: {1}", cityOrState, values);
+                        Console.ReadLine();
+                        return;
+                    }
+                    else
+                    {
+                        if (data.state == cityOrState)
+                        {
+                            var values = addressBookSysytem.Count(x => x.state.ToLower() == cityOrState.ToLower());
+                            Console.WriteLine("In {0} total number of person: {1}", cityOrState, values);
+                            Console.ReadLine();
+                            return;
+                        }
+                    }
+                    Console.WriteLine("In {0} no person is present", cityOrState);
+                    //Console.ReadLine();
+                    return;
+                }
+
+            }
+        }
+            
 
 
 
-    public void Display()
+
+
+            public void Display()
         {
             foreach (CreateContacts contact in addressBookSysytem)
             {
