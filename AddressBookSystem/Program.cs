@@ -31,8 +31,11 @@ namespace AddressBookSystem
                                 "8. SearchPersonUsingStateorCity\n" +
                                 "9 .ViewPersonByCityOrState\n" +
                                 "10.CountCityOrState \n" +
-                                "11.SortPersonName"
+                                "11.SortPersonName \n "+
+                                "12.SortPersonByCityStateorZip"+
+                                "13. ReadWriteContactThroughFileI/O"
 
+                                
    
                               );
 
@@ -90,6 +93,15 @@ namespace AddressBookSystem
                         AddressBook address10 = new AddressBook();
                         address10.SortPersonsName();
                         break;
+                    case 12:
+                        AddressBook addressBook11 = new AddressBook();
+                        addressBook11.SortPersonByCityStateOrZip();
+                        break;
+                    case 13:
+                        AddressBook addressBook12 = new AddressBook();
+                        addressBook12.ReadWritePersonContactsByUsingFileIO();
+                        break;
+
                     default:
                         Console.Clear();
                         Console.WriteLine("Select only give options");

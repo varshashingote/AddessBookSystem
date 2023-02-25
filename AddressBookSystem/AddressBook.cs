@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.IO;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
@@ -363,8 +364,51 @@ namespace AddressBookSystem
             }
             Console.ReadLine();
         }
+        public  void SortPersonByCityStateOrZip()
+        {
+            Console.Clear();
+            var citysort = addressBookSysytem.OrderBy(x => x.city.ToLower()).ToList();
+            var statesort = addressBookSysytem.OrderBy(x => x.state.ToLower()).ToList();
+            var zipcodesort = addressBookSysytem.OrderBy(x => x.zip).ToList();
+            Console.WriteLine("Sort person name by city name");
+            Console.WriteLine("--------------------------------------");
+            foreach (var result in citysort)
+            {
+                Console.WriteLine("CityName:" + result.city + "    " + "FirstName:" + result.First_Name);
+            }
+            Console.WriteLine("Sort person name by state name");
+            Console.WriteLine("-----------------------------------");
+            foreach (var result in statesort)
+            {
+                Console.WriteLine("StateName:" + result.state + "    " + "FirstName" + result.First_Name);
+            }
+            Console.WriteLine("Sort person name by zipcoad");
+            Console.WriteLine("----------------------------------");
+            foreach (var result in zipcodesort)
+            {
+                Console.WriteLine("ZipCode:" + result.zip + "     " + "FirstName:" + result.First_Name);
+            }
+            Console.ReadLine();
+        }
 
-
+        public  void ReadWritePersonContactsByUsingFileIO()
+        {
+            //Write in  file
+            Console.Clear();
+            string filePath = @"C:\Users\SHIVNERI\source\repos\AddressBookSystem\AddressBookSystem\PersonDetail.txt";
+            StreamWriter writer = new StreamWriter(filePath);
+            foreach (var data in addressBookSysytem)
+            {
+                writer.WriteLine("FirstName: " + data.First_Name + "    " + "\nLastName: " + data.Last_Name + "    " + "\nAddress: " + data.Address + "    " + "\nCityName: " + data.city + "    " + "\nStateName: " + data.state + "    " + "\nZipCode: " + data.zip + "    " + "\nPhoneNumber: " + data.PhoneNo + "    " + "\nEmailId: " + data.Email + "\n------------------------------------");
+            }
+            writer.Close();
+            //Read from file
+            StreamReader reader = new StreamReader(filePath);
+            Console.WriteLine(reader.ReadToEnd());
+            Console.ReadLine();
+            Console.WriteLine("Press any key to continue.");
+            reader.Close();
+        }
 
 
         public void Display()
