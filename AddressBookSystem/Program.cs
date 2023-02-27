@@ -84,6 +84,11 @@ namespace AddressBookSystem
                         AddressBook.SortPersonByCityStateOrZip();
                         Console.Clear();
                         break;
+                    case 14:
+                        Console.WriteLine("Details of Persons In Address Book:\n-----------------------------------------------");
+                        AddressBook.ReadWritePersonContactsByUsingFileIO();
+                        Console.Clear();
+                        break;
                     default:
                         Console.Clear();
                         Console.WriteLine("Select only give options");
