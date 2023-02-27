@@ -12,116 +12,43 @@ namespace AddressBookSystem
     internal class Program
     {
         static void Main(string[] args)
-
-
         {
-            Console.WriteLine("!!!Welcome To AddressBook Program!!!!");
-            List<CreateContacts> addressBookSysytem = new List<CreateContacts>();
+            Console.Clear();
+            Console.WriteLine("Welcome to Address Book Program\n");
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Please Enter Your choice :\n" +
-                                "1.add Contact in List\n" +
-                                "2.add new Contact  Contact\n" +
-                                "3.Edit Contact\n" +
-                                "4.Delete Contact\n" +
-                                "5. Add Multiple contact\n" +
-                                "6.Add Unique multile Contacts\n" +
-                                "7.No Duplicate Entry\n" +
-                                "8. SearchPersonUsingStateorCity\n" +
-                                "9 .ViewPersonByCityOrState\n" +
-                                "10.CountCityOrState \n" +
-                                "11.SortPersonName \n "+
-                                "12.SortPersonByCityStateorZip"+
-                                "13. ReadWriteContactThroughFileI/O"
-
-                                
-   
-                              );
-
-                int choice = Convert.ToInt32(Console.ReadLine());
-                switch (choice)
+                Console.WriteLine("Please select given options:\n");
+                Console.WriteLine("1.AddContacts\n2.DisplayDetails\n17.Exit\n");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
                 {
                     case 1:
-                        AddressBook address = new AddressBook();
-                        Console.WriteLine(" ");
-                        address.createContact();
+                        AddressBook.AddContacts();
+                        Console.Clear();
                         break;
-
                     case 2:
-                        AddressBook address1 = new AddressBook();
-                        address1.createContact();
-                        Console.WriteLine("Information Of Contacts :");
-                        address1.Display();
-                        address1.addPerson();
+                        AddressBook.DisplayDetails();
+                        Console.Clear();
                         break;
-                    case 3:
-                        AddressBook address2 = new AddressBook();
-                        address2.EditContact();
+                    case 17:
+                        Console.Clear();
+                        Console.ReadLine();
                         break;
-                    case 4:
-                        AddressBook address3 = new AddressBook();
-                        address3.DeleteContact();
-                        break;
-                    case 5:
-                        AddressBook address4 = new AddressBook();
-                        address4.AddMultipleContact();
-                        break;
-
-                    case 6:
-                        AddressBook address5 = new AddressBook();
-                        address5.NewUser();
-
-                        break;
-                    case 7:
-                        AddressBook address6 = new AddressBook();
-                        address6.CheckDuplicate();
-                        break;
-                    case 8:
-                        AddressBook address7 = new AddressBook();
-                        address7.SearchPersonByCityOrState();
-                        break;
-                    case 9:
-                        AddressBook address8 = new AddressBook();
-                        address8.ViewPersonByCityOrState();
-                        break;
-                    case 10:
-                        AddressBook address9 = new AddressBook();
-                        address9.CountCityOrState();
-                        break;
-                    case 11:
-                        AddressBook address10 = new AddressBook();
-                        address10.SortPersonsName();
-                        break;
-                    case 12:
-                        AddressBook addressBook11 = new AddressBook();
-                        addressBook11.SortPersonByCityStateOrZip();
-                        break;
-                    case 13:
-                        AddressBook addressBook12 = new AddressBook();
-                        addressBook12.ReadWritePersonContactsByUsingFileIO();
-                        break;
-
                     default:
                         Console.Clear();
                         Console.WriteLine("Select only give options");
                         break;
                 }
-                Console.WriteLine("Try Again ");
-
             }
         }
     }
 }
+       
 
 
 
-
-               
-
-
-
-
+    
 
 
 
@@ -137,4 +64,5 @@ namespace AddressBookSystem
 
 
 
-                            
+
+

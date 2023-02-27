@@ -1,0 +1,27 @@
+FirstName: varsha   
+LastName: Gunjal    
+Address: Pune    
+CityName: dmd
+StateName: MP
+ZipCode: 54657
+PhoneNumber: 23345678   
+EmailId: bjfekf@gmail.com
+------------------------------------
+FirstName: vasu
+LastName: Shingote  
+Address: jfkdf  
+CityName: djf
+StateName: UP    
+ZipCode: 987456    
+PhoneNumber: 243456   
+EmailId: vasu@gmail.com
+------------------------------------
+FirstName: suraj    
+LastName: Shingote  
+Address: jwsdns  
+CityName: wdj
+StateName: mh
+ZipCode: 951753    
+PhoneNumber: 2435678 
+EmailId: suarj@gmail.com
+------------------------------------
