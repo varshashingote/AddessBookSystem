@@ -23,7 +23,8 @@ namespace AddressBookSystem
                     "\n4 DeleteContact \n5 AddMultipleUser\n6.CreateDictionaryContacts" +
                     "\n7.DisplayDictionaryList \n8 CheckDuplicateEntry" +
                     "\n9 SearchPersonByCityOrState \n10 ViewPersonByCityOrState" +
-                    "\n11 CountCityOrState \n 12 SortPersonsName \n17.Exit\n");
+                    "\n11 CountCityOrState \n 12 SortPersonsName" +
+                    "\n13 SortPersonByCityStateOrZip \n17.Exit\n");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -78,6 +79,10 @@ namespace AddressBookSystem
                     case 17:
                         Console.Clear();
                         Console.ReadLine();
+                        break;
+                    case 13:
+                        AddressBook.SortPersonByCityStateOrZip();
+                        Console.Clear();
                         break;
                     default:
                         Console.Clear();
