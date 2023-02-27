@@ -19,7 +19,7 @@ namespace AddressBookSystem
             while (flag)
             {
                 Console.WriteLine("Please select given options:\n");
-                Console.WriteLine("1.AddContacts\n2.DisplayDetails\n17.Exit\n");
+                Console.WriteLine("1.AddContacts\n2.DisplayDetails\n3.EditContact\n17.Exit\n");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -31,6 +31,11 @@ namespace AddressBookSystem
                         AddressBook.DisplayDetails();
                         Console.Clear();
                         break;
+                    case 3:
+                        AddressBook.EditPersonDetails();
+                        Console.Clear();
+                        break;
+
                     case 17:
                         Console.Clear();
                         Console.ReadLine();
