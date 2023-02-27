@@ -127,23 +127,23 @@ namespace AddressBookSystem
             }
         }
 
-            //UC4-Delete a person using person's name
-            public static void DeletePersonByUsingPersonName()
+        //UC4-Delete a person using person's name
+        public static void DeletePersonByUsingPersonName()
+        {
+            Console.Clear();
+            Console.WriteLine("Enter the first name of that person you want to remove: ");
+            string fName = Console.ReadLine();
+            foreach (var data in Person)
             {
-                Console.Clear();
-                Console.WriteLine("Enter the first name of that person you want to remove: ");
-                string fName = Console.ReadLine();
-                foreach (var data in Person)
+                if (data.firstName.ToLower() == fName.ToLower())
                 {
-                    if (data.firstName.ToLower() == fName.ToLower())
-                    {
-                        Person.Remove(data);
-                        Console.WriteLine("{0} is deleted sucessfully from the AddressBook\nPress any key to continue", data.firstName);
-                        Console.ReadLine();
-                        return;
-                    }
+                    Person.Remove(data);
+                    Console.WriteLine("{0} is deleted sucessfully from the AddressBook\nPress any key to continue", data.firstName);
+                    Console.ReadLine();
+                    return;
                 }
             }
+        }
         //UC5- Ability to add multiple person to Address Book.
         public static void AddMultiplePerson()
         {
@@ -328,6 +328,41 @@ namespace AddressBookSystem
                     break;
             }
             Console.ReadLine();
+        }
+        /// <summary>
+        /// UC10- Ability to get number of contact persons i.e. count by City or State.
+        /// </summary>
+        public static void CountCityOrState()
+        {
+            Console.Clear();
+            Console.WriteLine("Enter the CityOrState name that want to count ");
+            string cityOrState = Console.ReadLine();
+            foreach (var data in Person)
+            {
+                if (Person.Contains(data))
+                {
+                    if (data.city.ToLower() == cityOrState.ToLower())
+                    {
+                        var values = Person.Count(x => x.city.ToLower() == cityOrState.ToLower());
+                        Console.WriteLine("In {0} total number of person: {1}", cityOrState, values);
+                        Console.ReadLine();
+                        return;
+                    }
+                    else
+                    {
+                        if (data.state == cityOrState)
+                        {
+                            var values = Person.Count(x => x.state.ToLower() == cityOrState.ToLower());
+                            Console.WriteLine("In {0} total number of person: {1}", cityOrState, values);
+                            Console.ReadLine();
+                            return;
+                        }
+                    }
+                    Console.WriteLine("In {0} no person is present", cityOrState);
+                    //Console.ReadLine();
+                    return;
+                }
+            }
         }
 
     }
