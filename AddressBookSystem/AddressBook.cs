@@ -69,7 +69,7 @@ namespace AddressBookSystem
             Console.Clear();
             Console.WriteLine("Enter First Name: ");
             string fName = Console.ReadLine();
-            Console.WriteLine("Enter First Name: ");
+            Console.WriteLine("Enter last Name: ");
             string lName = Console.ReadLine();
             foreach (var data in Person)
             {
