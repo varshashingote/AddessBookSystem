@@ -1,11 +1,14 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace AddressBookSystem
 {
@@ -69,7 +72,7 @@ namespace AddressBookSystem
             Console.Clear();
             Console.WriteLine("Enter First Name: ");
             string fName = Console.ReadLine();
-            Console.WriteLine("Enter First Name: ");
+            Console.WriteLine("Enter Last Name: ");
             string lName = Console.ReadLine();
             foreach (var data in Person)
             {
@@ -434,8 +437,32 @@ namespace AddressBookSystem
             Console.WriteLine("Press any key to continue.");
             reader.Close();
         }
+
+        /// <summary>
+        /// UC14- Read or Write the Address Book with Persons Contact as CSV File.
+        /// </summary>
+        public static void ReadWritePersonContactsAsCSVFile()
+        {
+            //Write into file
+            string csvFilePath = @"C:\Users\SHIVNERI\source\repos\AddressBookSystem\AddressBookSystem\PersonDetailsInCSVFile.csv";
+            StreamWriter writer = new StreamWriter(csvFilePath);
+            CsvWriter csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture);
+            csvWriter.WriteRecords(Person);
+            writer.Close();
+            //Read from file
+            StreamReader streamReader = new StreamReader(csvFilePath);
+            CultureInfo culture = CultureInfo.InvariantCulture;
+            CsvReader reader = new CsvReader(streamReader, culture);
+            var record = reader.GetRecords<Contacts>().ToList();
+            foreach (Contacts data in record)
+            {
+                Console.WriteLine("FirstName: " + data.firstName + "    " + "\nLastName: " + data.lastName + "    " + "\nAddress: " + data.address + "    " + "\nCityName: " + data.city + "    " + "\nStateName: " + data.state + "    " + "\nZipCode: " + data.zipcode + "    " + "\nPhoneNumber: " + data.phoneNumber + "    " + "\nEmailId: " + data.email + "\n------------------------------------");
+            }
+        }
+
     }
 }
+
 
 
     
